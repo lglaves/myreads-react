@@ -1,4 +1,12 @@
 {
+  "name": "myreads-react",
+  "version": "0.1.0",
+  "author:": "Leslie Glaves",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/lglaves/myreads-react"
+  },
   "dependencies": {
     "prop-types": "^15.5.8",
     "react": "^15.5.4",

@@ -4,8 +4,8 @@
 
 MyReads is a Virtual Bookcase Application that provides a Web based GUI to allow you to store your personal book reading list by organizing books into one of 3 categories organized in virtual book shelves:
 1) "Currently Reading"
-2) "Have Read"
-3) "Want to Read"
+2) "Want to Read"
+3) "Read"
 
 The application will allow you to search the Udacity provided library for books to add to your collection and you can also move books from one category to another, or delete books from your reading list.
 
@@ -13,18 +13,21 @@ The application will allow you to search the Udacity provided library for books 
 
 
 ## Libraries Used
-
 * React
 * React Router V4
 
 ## Features Added
-* Search for Books in the Udacity provided library
+* Ability to search for Books in the Udacity provided library and add them to the reading list
 * Ability to Move Books among the shelves
 * Ability to Remove a Book completely from your library
-* Implemented Debounce JavaScript function to limit the rate of the search function execution
+
+## To Install and Run this Application
+1) This application requires `npm` and `node js` to be installed 
+1) Clone or download a copy of this repository
+1) Install dependencies by running `npm install` from the root directory of the project
+1) Start a development server by running `npm start` from the root directory of the project
 
 ## References Used
-* [Throttling and Debouncing in JavaScript](https://medium.com/@_jh3y/throttling-and-debouncing-in-javascript-b01cad5c8edf)
 * [A Simple React Router v4 Tutorial](https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf)
 
 

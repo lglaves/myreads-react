@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 // Book Component displays a single book
 
@@ -41,7 +42,9 @@ class Book extends Component {
             <li key={book.id}>
                 <div className="book">
                     <div className="book-top">
+                        <Link to={`/detail/${book.id}`}>
                         <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks ? book.imageLinks.thumbnail : ''})`}}></div>
+                        </Link>
                         <div className="book-shelf-changer">
                             <select value={this.state.bookShelf} onChange={(event) => this.changeShelf(event, book)}>
                                 <option value="noValue" disabled>Move to...</option>

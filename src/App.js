@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
 import BookSearch from './components/BookSearch'
 import BookShelf from './components/BookShelf'
+import BookDetail from './components/BookDetail'
 import './App.css'
 
 // BooksApp Component displays the book reading list organized on 3 shelves and
@@ -15,14 +16,14 @@ class BooksApp extends Component {
     constructor(props) {
         super(props)
         this.updateBookShelf = this.updateBookShelf.bind(this);
-        this.getBookById = this.getBookById.bind(this);
+        this.getBooksById = this.getBooksById.bind(this);
     }
 
     state = {
         allBooks: null
     }
 
-    getBookById(id) {
+    getBooksById(id) {
         let books
 
         if(this.state.allBooks) {
@@ -67,7 +68,7 @@ class BooksApp extends Component {
             <div className="app">
 
                 <Route exsact path="/search" render={() => (
-                    <BookSearch getBookById={this.getBookById} onUpdateBook={this.updateBookShelf}/>
+                    <BookSearch getBooksById={this.getBooksById} onUpdateBook={this.updateBookShelf}/>
                 )}/>
 
                 <Route exact path="/" render={() => (
@@ -76,15 +77,19 @@ class BooksApp extends Component {
                             <h1>My Reading List</h1>
                         </div>
                         <div className="list-books-content">
-                            <BookShelf getBookById={this.getBookById} onUpdateBook={this.updateBookShelf} title='Currently Reading' books={ currentlyReading }/>
-                            <BookShelf getBookById={this.getBookById} onUpdateBook={this.updateBookShelf} title='Want to Read' books={ wantToRead }/>
-                            <BookShelf getBookById={this.getBookById} onUpdateBook={this.updateBookShelf} title='Read' books={ read }/>
+                            <BookShelf getBooksById={this.getBooksById} onUpdateBook={this.updateBookShelf} title='Currently Reading' books={ currentlyReading }/>
+                            <BookShelf getBooksById={this.getBooksById} onUpdateBook={this.updateBookShelf} title='Want to Read' books={ wantToRead }/>
+                            <BookShelf getBooksById={this.getBooksById} onUpdateBook={this.updateBookShelf} title='Read' books={ read }/>
                         </div>
                         <div className="open-search">
                             <Link to="/search">Add a book</Link>
                         </div>
                     </div>
                 )}/>
+
+                <Route exact path="/detail/:id" render={({match}) => (
+                    <BookDetail getBooks={this.getBooks} onUpdateBook={this.updateBookShelf} />
+                )} />
             </div>
         )
     }

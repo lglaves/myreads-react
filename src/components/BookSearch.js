@@ -58,7 +58,7 @@ class BookSearch extends Component {
                         {
                             books.map((book) => (
                                 <Book
-                                    getBookById={this.props.getBookById}
+                                    getBooksById={this.props.getBooksById}
                                     onUpdateBook={this.props.onUpdateBook}
                                     book={book ? book : null} key={book.id}
                                 />

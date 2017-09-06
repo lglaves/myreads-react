@@ -7,7 +7,7 @@ class BookDetail extends Component {
 
     render() {
 
-        const { book} = this.props
+        const { book } = this.props
 
         return (
             <div className="list-books">

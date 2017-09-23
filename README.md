@@ -20,6 +20,7 @@ The application will allow you to search the Udacity provided library for books 
 * Ability to search for Books in the Udacity provided library and add them to the reading list
 * Ability to Move Books among the shelves
 * Ability to Remove a Book completely from your library
+* Ability to click on book cover and open a page displaying the book description
 
 ## To Install and Run this Application
 1) This application requires `npm` and `node js` to be installed 

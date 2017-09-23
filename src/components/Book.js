@@ -18,7 +18,6 @@ class Book extends Component {
     }
 
     componentDidMount() {
-        // This is required for book to be defined - lbg
         const book = this.props.book
         let shelf
         let bookOnShelf = this.props.getBooksById(book.id);
@@ -33,18 +32,13 @@ class Book extends Component {
             bookShelf: shelf
         })
 
-        // lbg debug
-        // console.log('book.title inside ComponentDidMount: ', book.title)
     }
 
 
     render() {
 
-        // This is required for book to be defined - lbg
         const { book } = this.props
 
-        // lbg debug
-        // console.log('Book in Book you got the details: ', book)
         return(
             <li key={book.id}>
                 <div className="book">

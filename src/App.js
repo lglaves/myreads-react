@@ -87,8 +87,8 @@ class BooksApp extends Component {
                     </div>
                 )}/>
 
-                <Route exact path="/detail/:id" render={({match}) => (
-                    <BookDetail getBooks={this.getBooks} onUpdateBook={this.updateBookShelf} />
+                <Route exact path="/detail/:id" render={( { match, location }) => (
+                    <BookDetail bookId={(match.params.id)} />
                 )} />
             </div>
         )

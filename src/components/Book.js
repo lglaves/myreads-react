@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom'
 class Book extends Component {
 
     constructor () {
-        super();
-        this.state = { bookShelf: 'none' };
+        super()
+        this.state = { bookShelf: 'none' }
     }
 
     changeShelf(event, book) {
@@ -18,6 +18,7 @@ class Book extends Component {
     }
 
     componentDidMount() {
+        // This is required for book to be defined - lbg
         const book = this.props.book
         let shelf
         let bookOnShelf = this.props.getBooksById(book.id);
@@ -31,13 +32,19 @@ class Book extends Component {
         this.setState({
             bookShelf: shelf
         })
+
+        // lbg debug
+        // console.log('book.title inside ComponentDidMount: ', book.title)
     }
 
 
     render() {
 
+        // This is required for book to be defined - lbg
         const { book } = this.props
 
+        // lbg debug
+        // console.log('Book in Book you got the details: ', book)
         return(
             <li key={book.id}>
                 <div className="book">

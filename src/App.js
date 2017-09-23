@@ -23,6 +23,7 @@ class BooksApp extends Component {
         allBooks: null
     }
 
+    // Used to filter books to shelves
     getBooksById(id) {
         let books
 
@@ -38,7 +39,7 @@ class BooksApp extends Component {
 
     componentDidMount() {
         BooksAPI.getAll().then((books) => {
-            this.setState({allBooks: books});
+            this.setState({allBooks: books})
         })
     }
 
@@ -57,17 +58,24 @@ class BooksApp extends Component {
         let wantToRead
         let read
 
+        //let bookDetail
+
         if(this.state.allBooks !== null) {
             // filter books by book.shelf
             currentlyReading = this.state.allBooks.filter((book) => book.shelf === 'currentlyReading')
             wantToRead = this.state.allBooks.filter((book) => book.shelf === 'wantToRead')
             read = this.state.allBooks.filter((book) => book.shelf === 'read')
+
+            // lbg debug
+            //bookDetail = this.state.allBooks.filter((book) => book.id === bookDetail)
         }
+
+
         return (
 
             <div className="app">
 
-                <Route exsact path="/search" render={() => (
+                <Route exact path="/search" render={() => (
                     <BookSearch getBooksById={this.getBooksById} onUpdateBook={this.updateBookShelf}/>
                 )}/>
 
@@ -87,8 +95,8 @@ class BooksApp extends Component {
                     </div>
                 )}/>
 
-                <Route exact path="/detail/:id" render={({match}) => (
-                    <BookDetail getBooks={this.getBooks} onUpdateBook={this.updateBookShelf} />
+                <Route exact path="/detail/:id" render={( { match, location }) => (
+                    <BookDetail bookId={(match.params.id)}/>
                 )} />
             </div>
         )

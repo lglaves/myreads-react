@@ -190,3 +190,29 @@ body, .app {
   background-size: 20px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
+
+
+/* book detail */
+
+.book-cover-detail {
+  position: relative;
+  margin: 2.5em;
+  float: left;
+}
+
+.book-title-detail {
+  margin-left: 1.5em;
+  margin-top: 2.5em;
+  font-size: 1.4rem;
+}
+
+.book-detail-authors {
+  margin: 2em;
+  color: #333;
+  font-size: 0.9rem;
+  font-weight: normal;
+}
+
+.book-detail-description {
+  margin: 2em;
+}

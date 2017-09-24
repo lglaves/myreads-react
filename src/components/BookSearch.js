@@ -10,13 +10,10 @@ class BookSearch extends Component {
 
     constructor () {
         super();
-        this.state = {
-            query: '',
-            filteredBooks: []
-        };
+        this.state = { query: '', filteredBooks: [] }
     }
 
-    handleChange = (query) => {
+    seekBooks = (query) => {
         this.setState({query: query})
 
         if(query.trim() !== '') {
@@ -49,7 +46,7 @@ class BookSearch extends Component {
                             type="text"
                             value={this.state.query}
                             placeholder="Search by title or author"
-                            onChange={(event) => this.handleChange(event.target.value)}
+                            onChange={(event) => this.seekBooks(event.target.value)}
                         />
                     </div>
                 </div>
@@ -58,7 +55,7 @@ class BookSearch extends Component {
                         {
                             books.map((book) => (
                                 <Book
-                                    getBooksById={this.props.getBooksById}
+                                    getMyBookList={this.props.getMyBookList}
                                     onUpdateBook={this.props.onUpdateBook}
                                     book={book ? book : null} key={book.id}
                                 />

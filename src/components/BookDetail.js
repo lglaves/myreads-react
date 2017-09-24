@@ -5,14 +5,14 @@ import * as BooksAPI from '../BooksAPI'
 
 class BookDetail extends Component {
 
-    state = {
-        book: {},
+    constructor () {
+        super()
+        this.state = { book: {} }
     }
 
     componentWillMount() {
         const { bookId } = this.state
         this.book = this.getBook(bookId)
-
     }
 
     getBook() {

@@ -15,15 +15,12 @@ class BooksApp extends Component {
     // constructor is required when initializing state and binding methods
     constructor(props) {
         super(props)
-        this.updateBookShelf = this.updateBookShelf.bind(this);
-        this.getBooksById = this.getBooksById.bind(this);
+        this.changeBookShelf = this.changeBookShelf.bind(this)
+        this.getMyBookList = this.getMyBookList.bind(this)
+        this.state = { allBooks: null }
     }
 
-    state = {
-        allBooks: null
-    }
-
-    getBooksById(id) {
+    getMyBookList(id) {
         let books
 
         if(this.state.allBooks) {
@@ -42,9 +39,10 @@ class BooksApp extends Component {
         })
     }
 
-    updateBookShelf(event, book) {
-        let self = this
-        BooksAPI.update(book, event.target.value).then(function() {
+    changeBookShelf(event, book) {
+        const self = this
+        const shelf = event.target.value
+        BooksAPI.update(book, shelf).then(function() {
             // Set shelf value
             BooksAPI.getAll().then(books => self.setState({
                 allBooks: books
@@ -68,7 +66,7 @@ class BooksApp extends Component {
             <div className="app">
 
                 <Route exsact path="/search" render={() => (
-                    <BookSearch getBooksById={this.getBooksById} onUpdateBook={this.updateBookShelf}/>
+                    <BookSearch getMyBookList={this.getMyBookList} onUpdateBook={this.changeBookShelf}/>
                 )}/>
 
                 <Route exact path="/" render={() => (
@@ -77,9 +75,9 @@ class BooksApp extends Component {
                             <h1>My Reading List</h1>
                         </div>
                         <div className="list-books-content">
-                            <BookShelf getBooksById={this.getBooksById} onUpdateBook={this.updateBookShelf} title='Currently Reading' books={ currentlyReading }/>
-                            <BookShelf getBooksById={this.getBooksById} onUpdateBook={this.updateBookShelf} title='Want to Read' books={ wantToRead }/>
-                            <BookShelf getBooksById={this.getBooksById} onUpdateBook={this.updateBookShelf} title='Read' books={ read }/>
+                            <BookShelf getMyBookList={this.getMyBookList} onUpdateBook={this.changeBookShelf} title='Currently Reading' books={ currentlyReading }/>
+                            <BookShelf getMyBookList={this.getMyBookList} onUpdateBook={this.changeBookShelf} title='Want to Read' books={ wantToRead }/>
+                            <BookShelf getMyBookList={this.getMyBookList} onUpdateBook={this.changeBookShelf} title='Read' books={ read }/>
                         </div>
                         <div className="open-search">
                             <Link to="/search">Add a book</Link>

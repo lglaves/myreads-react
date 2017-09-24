@@ -8,7 +8,7 @@ import sortBy from 'sort-by'
 class BookShelf extends Component {
 
     render() {
-        let books = this.props.books ? this.props.books : [];
+        let books = this.props.books ? this.props.books : []
         books.sort(sortBy('title'))
 
         return(
@@ -18,7 +18,7 @@ class BookShelf extends Component {
                     <ol className="books-grid">
                         {
                             books.map((book) => (
-                                <Book getBooksById={this.props.getBooksById} onUpdateBook={this.props.onUpdateBook} book={book ? book : null} key={book.id}/>
+                                <Book getMyBookList={this.props.getMyBookList} onUpdateBook={this.props.onUpdateBook} book={book ? book : null} key={book.id}/>
                             ))
                         }
                     </ol>

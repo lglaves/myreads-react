@@ -20,7 +20,7 @@ class Book extends Component {
     componentDidMount() {
         const book = this.props.book
         let shelf
-        let bookOnShelf = this.props.getBooksById(book.id);
+        let bookOnShelf = this.props.getMyBookList(book.id);
 
         if(bookOnShelf !== null) {
             shelf = bookOnShelf.shelf
